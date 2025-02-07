@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prakash K C - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0a192f;
+            color: #8892b0;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: #64ffda;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 2px;
+            background: #64ffda;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 100px 5%;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Hero Section */
+        #hero {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 2rem;
+    flex-shrink: 0;
+}
+
+.hero-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.hero-content {
+    flex: 1;
+    text-align: left;
+}
+
+.hero-title {
+    font-size: 4rem;
+    color: #ccd6f6;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 2.5rem;
+    color: #8892b0;
+    margin-bottom: 2rem;
+}
+
+.hero-desc {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+#about {
+        background-color: #112240;
+        padding: 5rem 5%;
+        text-align: center;
+        color: #ccd6f6;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .about-title {
+        font-size: 2rem;
+        color: #64ffda;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.5s ease-out;
+    }
+
+    .about-title[data-aos="fade-up"] {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .about-content {
+        font-size: 1.1rem;
+        
+        max-width: 800px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.5s ease-out;
+    }
+
+    .about-content[data-aos="fade-up"] {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Hover Effects */
+    .about-content:hover {
+        color: #64ffda;
+        cursor: pointer;
+        transform: scale(1.02);
+        transition: transform 0.3s ease;
+    }
+
+    /* Animation */
+    #about[data-aos="fade-up"] {
+        opacity: 0;
+        transform: translateY(50px);
+        animation: fadeInUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* AOS Animation */
+    .aos-animate {
+        animation: fadeInUp 1s ease-out forwards;
+    }
+
+
+        /* Button */
+        .cta-btn {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 2px solid #64ffda;
+            color: #64ffda;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(100, 255, 218, 0.2);
+            transition: left 0.3s ease;
+        }
+
+        .cta-btn:hover::before {
+            left: 0;
+        }
+
+        .cta-btn:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        /* Skills Section */
+        #skills {
+                 flex-direction: column;
+                 position: center;
+                 top: 0%;
+        }
+
+        .skills-container {
+            display: grid;
+            
+            gap: 2rem;
+            width: 100%;
+            margin-top: 3rem;
+        }
+
+        .skill-card {
+            background: #112240;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            padding: 2rem;
+            border-radius: 4px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(100, 255, 218, 0.2);
+        }
+
+        /* Projects Section */
+        .project{
+            flex-direction: column;
+        }
+        .projects-grid {
+            word-wrap: break-word; /* Ensures long words break properly */
+    overflow-wrap: break-word;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Smooth snap effect */
+    padding: 10px;
+    
+}
+.projects-grid::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+.project-card {
+    flex: 0 0 auto; /* Prevents shrinking */
+    word-wrap: break-word; /* Ensures long words break properly */
+    overflow-wrap: break-word;
+    text-align: center; 
+    width: 300px;
+    scroll-snap-align: start; /* Ensures smooth scrolling */
+    background: #112240;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+.project-card:hover {
+    transform: scale(1.05);
+    
+    box-shadow: 0 8px 16px rgba(100, 255, 218, 0.2);
+}
+
+        /* Contact Section */
+        #contact {
+            padding: 5rem 5%;
+            text-align: center;
+            background: #112240;
+            color: #ccd6f6;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(100, 255, 218, 0.2);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: #0a192f;
+            border: 2px solid #64ffda;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .form-input:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+        }
+
+        .send-btn {
+            padding: 1rem 2rem;
+            background: #64ffda;
+            border: none;
+            color: #0a192f;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .send-btn:hover {
+            background: #52e0b5;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: #112240;
+            border: none;
+            color: #fff;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border: 2px solid #64ffda;
+            box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-avatar" data-aos="fade-up">
+            <img src="photo.jpg" alt="Profile Picture" class="avatar">
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title" data-aos="fade-up">Prakash K C</h1>
+            <h2 class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">Computer Science Engineer</h2>
+            <p class="hero-desc" data-aos="fade-up" data-aos-delay="400">I am a passionate full-stack developer skilled in building dynamic web applications. Proficient in HTML, CSS, JavaScript, React.js for frontend, and Node.js, Express.js, MongoDB for backend. Experienced in API testing with Postman, delivering seamless and innovative end-to-end solutions</p>
+            <a href="#contact" class="cta-btn" data-aos="fade-up" data-aos-delay="600">Get In Touch</a>
+            <a href="resume.pdf" download="Resume.pdf" class="cta-btn" data-aos="fade-up" data-aos-delay="800">Download Resume</a>
+        </div>
+    </section>
+
+    
+    
+
+    <section id="skills">
+        <h2 data-aos="fade-up">Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-card" data-aos="fade-up">
+                <h3>Frontend</h3>
+                <p>HTML, CSS, JavaScript, React</p>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>Backend</h3>
+                <p>Node.js, Python, Django, SQL,MongoDB </p>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>Programming Languages</h3>
+                <p>Java,Python,C</p>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>Framework</h3>
+                <p>React js,Express js</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 data-aos="fade-up">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-aos="fade-up">
+               
+                <h3>Login Application</h3>
+                <p>Mern Stack solution with React and Node.js</p>
+            </div>
+            <div class="project-card" data-aos="fade-up">
+                
+                <h3>Movie Search Platform</h3>
+                <p>Mern Stack solution with React , Node.js,MongoDB, Express.js</p>
+            </div>
+            <div class="project-card" data-aos="fade-up">
+                
+                <h3>Movie Search Platform</h3>
+                <p>Mern Stack solution with React , Node.js,MongoDB, Express.js</p>
+            </div>
+            <div class="project-card" data-aos="fade-up">
+                
+                <h3>Todo List/h3>
+                <p>Mern Stack solution with React , Node.js,MongoDB, Express.js</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="about-title" data-aos="fade-up">About Me</h2>
+        <p class="about-content" data-aos="fade-up" data-aos-delay="200">
+            I am a full-stack developer with a passion for creating innovative and efficient web applications. With a background in Computer Science Engineering, I am proficient in both front-end and back-end development, and I am constantly striving to enhance my skills by learning new technologies and methodologies.
+            <br><br>
+            My journey as a developer has been shaped by my curiosity and drive to solve complex problems. Whether it's developing a dynamic user interface using React.js or creating robust back-end solutions with Node.js, I thrive in both areas and enjoy the challenges that come with building end-to-end applications.
+            <br><br>
+            I believe in continuous learning and improvement, and I am always looking for new opportunities to grow as a developer and make an impact through my work.
+        </p>
+    </section>
+
+    
+        
+        <section id="contact">
+            <h2>Contact Me</h2>
+            
+            <form class="contact-form" onsubmit="sendEmail(event)">
+                <input type="text" id="name" class="form-input" placeholder="Your Name" required>
+                <input type="email" id="email" class="form-input" placeholder="Your Email" required>
+                <textarea id="message" class="form-input" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="send-btn">Send Message</button>
+            </form>
+        
+       >
+    </section>
+    <section id="contact">
+        <p data-aos="fade-up" style="font-size: 1.2rem; margin-bottom: 2rem;">You can also reach me directly via email at </p><a href="mailto:kcprakashprakash002@gmail.com" class="cta-btn" style="font-size: 1.1rem; ">kcprakashprakash002@gmail.com</a>
+</section>
+    
+    
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+         function sendEmail(event) {
+            event.preventDefault();  // Prevent form submission
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+            let recipient = "your-email@example.com"; // Change this to your email
+
+            let mailtoLink = `mailto:${recipient}?subject=Message from ${name}&body=Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}`;
+            window.location.href = mailtoLink;
+        }
+        AOS.init({
+    duration: 1000,
+    once: true,
+    easing: 'ease-in-out',
+    offset: 200, // Trigger animation a little earlier than the default
+});
+
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
